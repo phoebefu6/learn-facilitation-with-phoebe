@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 4 of 6. Forty real meetings from the AMI Meeting Corpus, every speaker's airtime, turns and overlaps computed in your browser. The project manager spoke most in 30 of 40. A round robin with a cap, simulated; let the loudest summarise, modelled; and a break button that shuffles the labels.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The airtime bench - learn facilitation with phoebe">
+<meta property="og:description" content="Session 4 of 6. Who held the floor in 40 real meetings, and what a facilitation move would change. Baseline measured, moves labelled.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-facilitation-with-phoebe/courses/04-the-airtime-bench.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-facilitation-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The airtime bench - learn facilitation with phoebe">
+<meta name="twitter:description" content="Session 4 of 6. 40 real meetings, airtime and turns measured live.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-facilitation-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 4 · The airtime bench - learn facilitation with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-facilitation-with-phoebe</a> / Session 4 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Facilitation with Phoebe · Session 4 of 6</div>
+    <h1>The <span class="accent">airtime</span> bench</h1>
+    <p class="sub">Full participation is the first of Kaner's four values, and the easiest to claim. Tonight it is measured. Forty real meetings from the AMI Meeting Corpus sit in this page, ten design teams of four, each recorded across a full day of four meetings. For every meeting the page computes, from the timing of 21,166 speaker segments, how much of the airtime each person held, how unequal that was, how often the floor changed hands, and who started speaking over whom. Then you apply facilitation moves to a meeting you choose, and watch the inequality move. The baseline is real. Every move is a rule the widget prints, and every number carries a tag saying which kind it is.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Bench night</span>
+      <span class="chip audience">Bring a meeting you ran</span>
+      <span class="chip audience">No code tonight, all clicking</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:2">3-12 · How a meeting becomes numbers</span>
+      <span class="a3" style="flex:6">12-38 · The bench, move by move</span>
+      <span class="a4" style="flex:2">38-45 · The evidence, and Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The AMI Meeting Corpus is about 100 hours of recorded meetings, released by the University of Edinburgh and partners under a Creative Commons Attribution licence. About two-thirds are scenario meetings: four people play a design team, a project manager, a marketing expert, a user interface designer and an industrial designer, and design a television remote control across four meetings in one day, from kick-off to detailed design. The participants were not trained designers, and the project manager's role is defined as coordinating the project and running the meetings. That last detail matters tonight: the role itself asks one person to talk.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">measured = counted from the real segments</span>
+      <span class="pill">simulated / modelled = a stated rule applied to the real baseline</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> The measured shape of airtime in 40 real meetings, a way of reading any meeting's balance in three numbers, the honest size of what a round robin can and cannot do, why handing the close to the loudest voice undoes it, and what the research on equal airtime actually shows, including the part that did not replicate.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers what the bench measures</span>
+      <h2>How a meeting becomes numbers</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">AMI's annotators marked, for every participant, each stretch of speech with a start and an end time. The bench uses only those segment timings: no audio and no words. From them it counts four things, defined the same way in the browser and in the Python reference run that checked every number on this page.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four horizontal lanes for PM, ME, UI and ID with speech segments drawn as bars along a time axis. Two adjacent PM segments are bracketed as one turn. A teal circle marks the moment ME starts while PM is still speaking, counted as ME started over PM. On the right, the four definitions: airtime is the union of a person's segments, a turn is a run of one person's segments, started over means began while another was mid-segment, and the Gini of the four shares runs from 0 for equal to 0.75 for one voice.">
+        <defs>
+          <filter id="f4aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f4aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#7D5F33" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="f4aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2A2117" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .f4aH { font: 800 12px Inter, sans-serif; fill: #2A2117; }
+          .f4aL { font: 600 12px Inter, sans-serif; fill: #2A2117; }
+          .f4aS { font: 400 11px Inter, sans-serif; fill: #6A5D4D; }
+          .f4aB { font: 800 11px Inter, sans-serif; fill: #124A5E; }
+          .f4aA { font: 700 11px Inter, sans-serif; fill: #7D5F33; }
+          .f4aN { font: 400 12px Inter, sans-serif; fill: #6A5D4D; }
+        </style>
+
+        <text class="f4aH" x="30" y="26">HOW A MEETING BECOMES NUMBERS</text>
+
+        <g filter="url(#f4aSk)" fill="none" stroke="#2A2117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="130" y="70" width="80" height="24" rx="4" fill="#7D5F33"/>
+          <rect x="214" y="70" width="126" height="24" rx="4" fill="#7D5F33"/>
+          <rect x="470" y="70" width="90" height="24" rx="4" fill="#7D5F33"/>
+          <rect x="300" y="110" width="60" height="24" rx="4" fill="url(#f4aHc)" stroke="#1C6A86"/>
+          <rect x="562" y="110" width="38" height="24" rx="4" fill="url(#f4aHc)"/>
+          <rect x="362" y="150" width="58" height="24" rx="4" fill="url(#f4aHc)"/>
+          <rect x="422" y="190" width="46" height="24" rx="4" fill="url(#f4aHc)"/>
+          <rect x="602" y="190" width="20" height="24" rx="4" fill="url(#f4aHc)"/>
+          <path d="M130 60 L130 54 L340 54 L340 60" stroke="#7D5F33"/>
+          <circle cx="300" cy="122" r="9" stroke="#1C6A86" stroke-width="2.5"/>
+          <path d="M120 228 L630 228" marker-end="url(#f4aAr)"/>
+        </g>
+
+        <text class="f4aA" x="235" y="46" text-anchor="middle">one turn, two segments</text>
+        <text class="f4aL" x="110" y="87" text-anchor="end">PM</text>
+        <text class="f4aL" x="110" y="127" text-anchor="end">ME</text>
+        <text class="f4aL" x="110" y="167" text-anchor="end">UI</text>
+        <text class="f4aL" x="110" y="207" text-anchor="end">ID</text>
+        <text class="f4aB" x="372" y="127">ME started over PM</text>
+        <text class="f4aS" x="600" y="246" text-anchor="end">time</text>
+
+        <text class="f4aH" x="660" y="70">WHAT IS COUNTED</text>
+        <text class="f4aL" x="660" y="94">airtime</text>
+        <text class="f4aS" x="660" y="110">union of a person's segments</text>
+        <text class="f4aL" x="660" y="136">turn</text>
+        <text class="f4aS" x="660" y="152">a run of one person's segments</text>
+        <text class="f4aL" x="660" y="178">started over</text>
+        <text class="f4aS" x="660" y="194">started while another spoke</text>
+        <text class="f4aL" x="660" y="220">Gini of the four shares</text>
+        <text class="f4aS" x="660" y="236">0 equal, 0.75 one voice</text>
+
+        <text class="f4aN" x="30" y="286">Timings are AMI's manual segment annotations, in hundredths of a second; no words or audio are used.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the bench never listens; it only knows who was speaking when, which is exactly what a facilitator can see from the front of the room</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Three numbers to read any meeting<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Share of airtime.</strong> Each person's speaking time divided by everyone's. With four people, an equal meeting gives each 25 percent. A share is the most direct reading of full participation, and the easiest to estimate from the front of a room: whose voice have you heard most?</p>
+        <p><strong>Gini of the four shares.</strong> One number for how unequal the shares are: 0 when everyone held the same airtime, rising to 0.75 when one of four people did all the talking. It lets you compare meetings and moves on one scale. The mean across the 40 meetings is 0.198, from 0.044 in the most balanced to 0.416 in the least.</p>
+        <p><strong>Top speaker's share.</strong> The share of the person who spoke most. Gini summarises everyone; the top share names the one thing a facilitator usually notices first. Across the 40 meetings the top speaker held 39.9 percent on average.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the definitions include, and leave out<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Started over</strong> counts every time a person begins a segment while someone else is mid-segment. That includes "yeah" and "mm-hmm" said under someone else's sentence, which are support, not interruption. The bench also counts the stricter case where the first speaker stopped before the second did, but neither is a measure of rudeness. Read the matrix as "who is talking while whom is talking", and expect the person who talks most to be talked over most, simply because they are speaking more of the time.</p>
+        <p><strong>Airtime says nothing about quality.</strong> One person explaining a cost model for six minutes may be exactly what the meeting needed. Inequality is a reading to interpret, not a score to minimise, and a kick-off where the project manager briefs the team is supposed to be unequal.</p>
+        <p><strong>The sample.</strong> Of the scenario teams with all four meetings, all four roles and complete timings, 32 qualified; ten were drawn with a fixed seed (one team was left out because AMI documents incomplete timings for it). The data is derived from the corpus and modified to timings only, as its licence permits with attribution.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="bench">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · the bench</span>
+      <h2>Forty real meetings, and four moves</h2>
+      <span class="tag demo">★ 26 min · the main event</span>
+    </div>
+    <p class="lede">The bench opens on TS3012b, a functional-design meeting of 40.9 minutes. Read the baseline first: the bars, the three numbers, the dot strip of all 40 meetings, and the table by meeting in the series. Then work down the four moves in order, and say out loud what changed and what did not before moving on. Pick other meetings from the list whenever you want a second case.</p>
+
+    <div id="airtime-bench" data-meeting="TS3012b"></div>
+
+    <div class="callout tip">
+      <p><strong>Read it in this order.</strong> The tag first, then the verdict line, then Gini and top share, then the sample-wide numbers. On TS3012b the project manager held 45.3 percent of the airtime against 25 percent for an equal share, a Gini of 0.217, close to the sample mean. It is an ordinary meeting, which is why it is the default.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers what the 40 meetings show</span>
+      <h2>The person who runs the meeting holds the floor</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">The bench computes these live; the numbers here are the ones it prints on the baseline, written down so they can be argued with after class. They agree with an independent Python run on every value.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two bar charts. Left: mean share of airtime by role across 40 meetings: project manager 37.6 percent, marketing expert 21.8, user interface designer 19.0, industrial designer 21.7, against a dashed equal-share line at 25 percent. Right: the project manager's mean share by meeting in the series: kick-off 49.2 percent, functional design 36.1, conceptual design 29.6, detailed design 35.4.">
+        <defs>
+          <filter id="f4bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="47" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f4bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#7D5F33" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f4bH { font: 800 12px Inter, sans-serif; fill: #2A2117; }
+          .f4bL { font: 600 12px Inter, sans-serif; fill: #2A2117; }
+          .f4bS { font: 400 11px Inter, sans-serif; fill: #6A5D4D; }
+          .f4bB { font: 800 11px Inter, sans-serif; fill: #124A5E; }
+          .f4bV { font: 800 12px Inter, sans-serif; fill: #4F3B1D; }
+          .f4bN { font: 400 12px Inter, sans-serif; fill: #6A5D4D; }
+        </style>
+
+        <text class="f4bH" x="30" y="26">WHO HELD THE FLOOR, MEASURED</text>
+        <text class="f4bL" x="40" y="52">Mean airtime share by role</text>
+        <text class="f4bL" x="470" y="52">PM's mean share, by meeting in the series</text>
+
+        <g filter="url(#f4bSk)" fill="none" stroke="#2A2117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="120" y="70" width="211" height="26" rx="4" fill="#7D5F33"/>
+          <rect x="120" y="110" width="122" height="26" rx="4" fill="url(#f4bHc)"/>
+          <rect x="120" y="150" width="106" height="26" rx="4" fill="url(#f4bHc)"/>
+          <rect x="120" y="190" width="122" height="26" rx="4" fill="url(#f4bHc)"/>
+          <path d="M260 64 L260 222" stroke="#1C6A86" stroke-dasharray="5 4"/>
+          <rect x="590" y="70" width="216" height="26" rx="4" fill="#1C6A86" stroke="#124A5E"/>
+          <rect x="590" y="110" width="159" height="26" rx="4" fill="#E6D5B3"/>
+          <rect x="590" y="150" width="130" height="26" rx="4" fill="#E6D5B3"/>
+          <rect x="590" y="190" width="156" height="26" rx="4" fill="#E6D5B3"/>
+          <path d="M700 64 L700 222" stroke="#1C6A86" stroke-dasharray="5 4"/>
+        </g>
+
+        <text class="f4bL" x="110" y="88" text-anchor="end">PM</text>
+        <text class="f4bL" x="110" y="128" text-anchor="end">ME</text>
+        <text class="f4bL" x="110" y="168" text-anchor="end">UI</text>
+        <text class="f4bL" x="110" y="208" text-anchor="end">ID</text>
+        <text class="f4bV" x="339" y="88">37.6%</text>
+        <text class="f4bV" x="270" y="128">21.8%</text>
+        <text class="f4bV" x="270" y="168">19.0%</text>
+        <text class="f4bV" x="270" y="208">21.7%</text>
+        <text class="f4bB" x="260" y="238" text-anchor="middle">equal share 25%</text>
+
+        <text class="f4bS" x="580" y="87" text-anchor="end">kick-off</text>
+        <text class="f4bS" x="580" y="127" text-anchor="end">functional</text>
+        <text class="f4bS" x="580" y="167" text-anchor="end">conceptual</text>
+        <text class="f4bS" x="580" y="207" text-anchor="end">detailed</text>
+        <text class="f4bV" x="814" y="88">49.2%</text>
+        <text class="f4bV" x="757" y="128">36.1%</text>
+        <text class="f4bV" x="728" y="168">29.6%</text>
+        <text class="f4bV" x="754" y="208">35.4%</text>
+        <text class="f4bB" x="700" y="238" text-anchor="middle">25%</text>
+
+        <text class="f4bN" x="30" y="276">The PM spoke most in 30 of 40 meetings, and in all 10 kick-offs. Measured, not simulated.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the role that runs the meeting holds the most airtime, most of all in the meeting that sets the direction</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Finding 1: the process role takes the floor<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Across the 40 meetings the project manager held 37.6 percent of the airtime on average, against 21.8, 19.0 and 21.7 percent for the other three roles, and was the top speaker in 30 of 40. In the ten kick-offs the PM held 49.2 percent and was the top speaker every time. By the third meeting, conceptual design, the PM's share was 29.6 percent and the PM was top in 5 of 10.</p>
+        <p>Part of this is the job description. AMI's scenario asks the PM to coordinate and run the meetings, so a kick-off where the PM talks for half the time is the role working as written. That is exactly the lesson for facilitation: whoever holds the process tends to hold the floor, whether or not anyone meant them to. A facilitator who is also the person with the agenda, the slides and the clock starts every meeting with that pull, and has to design against it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Finding 2: more turns, but longer ones<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PM took 29.7 percent of the turns but 37.6 percent of the airtime: PM turns are longer than everyone else's. The other three roles took 24.6, 22.7 and 23.1 percent of the turns. Turn counts are much closer to equal than airtime. People got in; they just did not stay long. A meeting can look participatory from the number of voices heard and still be run by one person's long turns. The floor changed hands about 14.1 times a minute on average, so these are lively meetings, not monologues.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Finding 3: everyone talks over the person who talks most<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Summed over the 40 meetings, other people started speaking while the PM was mid-segment 5,914 times, and the PM started over others 4,788 times. In TS3012b the industrial designer started over the PM 125 times and the marketing expert 124 times. Read with care: the person who holds the floor longest is the one others most often overlap, and much of it is agreement noises and attempts to get in. A high count in the column under one name is a sign the floor was hard to get, not that the others were rude.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>IS1001a, a kick-off.</strong> The project manager held 61.0 percent of the airtime, the highest share in the sample, and the Gini was 0.416. Nobody in that room was misbehaving: the PM was briefing three people who had just met, as the scenario asked. Select it on the bench and try the moves. It is the clearest case of a structure, not a personality, producing inequality, and the one where a facilitator's structure would change the most.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the moves, the anti-lever and the break button</span>
+      <h2>What a move can do, what undoes it, and how to know the bench is honest</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">The baseline happened. The moves did not: each applies a rule the widget prints to the real baseline and reports what the inequality would be under that rule. That makes them good for comparing moves and bad for predicting a particular meeting, and every number they produce is tagged so you cannot mistake one for the other.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Five horizontal bars of mean Gini across the same 40 meetings. Baseline, measured: 0.198. Round robin capped at 40 percent, simulated: 0.163. Round robin capped at 30 percent, simulated: 0.095. Let the loudest summarise, modelled: 0.236, the only bar longer than the baseline. Shuffle the speaker labels, the break button: 0.068.">
+        <defs>
+          <filter id="f4cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="f4cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#7D5F33" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .f4cH { font: 800 12px Inter, sans-serif; fill: #2A2117; }
+          .f4cL { font: 600 12px Inter, sans-serif; fill: #2A2117; }
+          .f4cS { font: 400 11px Inter, sans-serif; fill: #6A5D4D; }
+          .f4cR { font: 800 11px Inter, sans-serif; fill: #991B1B; }
+          .f4cV { font: 800 13px Inter, sans-serif; fill: #4F3B1D; }
+          .f4cN { font: 400 12px Inter, sans-serif; fill: #6A5D4D; }
+        </style>
+
+        <text class="f4cH" x="30" y="26">MEAN GINI OF AIRTIME, SAME 40 MEETINGS, FIVE WAYS</text>
+
+        <g filter="url(#f4cSk)" fill="none" stroke="#2A2117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="260" y="56" width="380" height="30" rx="4" fill="#7D5F33"/>
+          <rect x="260" y="108" width="313" height="30" rx="4" fill="#F8F1E3" stroke="#7D5F33"/>
+          <rect x="260" y="160" width="182" height="30" rx="4" fill="#F8F1E3" stroke="#7D5F33"/>
+          <rect x="260" y="212" width="453" height="30" rx="4" fill="#FEF2F2" stroke="#991B1B"/>
+          <rect x="260" y="264" width="131" height="30" rx="4" fill="url(#f4cHc)"/>
+          <path d="M640 48 L640 302" stroke="#1C6A86" stroke-dasharray="5 4"/>
+        </g>
+
+        <text class="f4cL" x="240" y="70" text-anchor="end">Baseline</text>
+        <text class="f4cS" x="240" y="84" text-anchor="end">measured</text>
+        <text class="f4cL" x="240" y="122" text-anchor="end">Round robin, cap 40%</text>
+        <text class="f4cS" x="240" y="136" text-anchor="end">simulated</text>
+        <text class="f4cL" x="240" y="174" text-anchor="end">Round robin, cap 30%</text>
+        <text class="f4cS" x="240" y="188" text-anchor="end">simulated</text>
+        <text class="f4cL" x="240" y="226" text-anchor="end">Loudest summarises</text>
+        <text class="f4cR" x="240" y="240" text-anchor="end">modelled, anti-lever</text>
+        <text class="f4cL" x="240" y="278" text-anchor="end">Shuffle the labels</text>
+        <text class="f4cS" x="240" y="292" text-anchor="end">break button</text>
+        <text class="f4cV" x="650" y="77">0.198</text>
+        <text class="f4cV" x="583" y="129">0.163</text>
+        <text class="f4cV" x="452" y="181">0.095</text>
+        <text class="f4cV" x="723" y="233">0.236</text>
+        <text class="f4cV" x="401" y="285">0.068</text>
+
+        <text class="f4cN" x="30" y="326">Only the first row happened. The others apply a stated rule to it, and the widget prints the rule.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two moves pull inequality down, one pushes it up in all 40 meetings, and the break button shows how low "random" goes</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The round robin with a cap, simulated<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>The rule:</strong> nobody may hold more than the cap; whatever was above it is handed out in equal parts to everyone below it, repeated until nobody is over. Total airtime stays the same. At a 40 percent cap the mean Gini falls from 0.198 to 0.163, because most meetings had nobody above 40 percent and are untouched. At 30 percent it falls to 0.095, the PM's mean share falls to 28.9 percent, and the PM is the sole top speaker in 22 of 40 meetings instead of 30. On TS3012b, a 30 percent cap takes Gini from 0.217 to 0.063.</p>
+        <p><strong>What it does not show:</strong> a real round changes more than the totals. It changes the order of ideas, who responds to whom, and sometimes how long the meeting runs. The cap is a way to see the size of the imbalance a structure would have to absorb, not a forecast of a better meeting. Drag the slider down to 25 percent and Gini goes to zero, which no real meeting does.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The anti-lever: let the loudest summarise<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ending a meeting with "Ravi, can you sum up where we landed?" feels efficient: Ravi has been the most engaged, and he knows the material. <strong>The model:</strong> every segment that starts in the last 10 percent of the meeting is handed to whoever already spoke most. Mean Gini rises from 0.198 to 0.236, the top speaker's mean share from 39.9 to 43.9 percent, and inequality rises in all 40 meetings. On TS3012b the PM's share goes from 45.3 to 49.4 percent.</p>
+        <p>The honest nuance: it is a model of the closing minutes, and in some meetings the top speaker would summarise fairly. The airtime cost is small. The bigger cost is the one the bench cannot count: the summary is the part of a meeting people remember and the part that becomes the record, and it is now in the voice that already dominated. Session 6 closes a different way.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The break button: shuffle the speaker labels<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A bench that can only produce the result you expect is measuring nothing. The break button gives every segment a speaker drawn at random from the four, with a fixed seed, and recomputes everything. If the PM's dominance came from the people, it should vanish; if it came from some artifact of how segments were cut, it would survive. It vanishes: the PM's mean share drops to 25.3 percent, the PM is top in 9 of 40 (about the 10 you would expect by chance), and the mean Gini falls to 0.068.</p>
+        <p>That 0.068 is also worth reading. Random labels do not give perfect equality, because segments differ in length and a random draw is uneven. It is the floor a four-person meeting reaches with no pattern at all, and a useful reminder that a Gini of 0.05 in a real meeting is about as equal as meetings get.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · covers the research behind equal airtime</span>
+      <h2>"Equal turn-taking makes smarter teams", traced</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Equal airtime is often sold with a famous finding attached, usually credited to Google. The trail is worth following, because the finding is not Google's and it did not replicate cleanly.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A timeline of six sources. 2010, Woolley and colleagues in Science link a collective intelligence factor to equal turn-taking. 2016, Duhigg's New York Times Magazine article joins that finding to Google's story. 2016, Google's re:Work guide lists five team dynamics and never mentions turn-taking. 2017, Bates and Gupta find turn-taking did not replicate. 2017, Crede and Howardson find the factor itself weak. 2021, Riedl and colleagues find process matters, where process means strategy and skill matching. The 2016 article is highlighted as the bridge.">
+        <defs>
+          <filter id="f4dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="59" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+        </defs>
+        <style>
+          .f4dH { font: 800 12px Inter, sans-serif; fill: #2A2117; }
+          .f4dL { font: 600 12px Inter, sans-serif; fill: #2A2117; }
+          .f4dS { font: 400 11px Inter, sans-serif; fill: #6A5D4D; }
+          .f4dB { font: 800 11px Inter, sans-serif; fill: #124A5E; }
+          .f4dW { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .f4dD { font: 800 12px Inter, sans-serif; fill: #4F3B1D; }
+          .f4dN { font: 400 12px Inter, sans-serif; fill: #6A5D4D; }
+        </style>
+
+        <text class="f4dH" x="30" y="26">WHERE "EQUAL AIRTIME" CAME FROM, AND WHAT HAPPENED NEXT</text>
+
+        <g filter="url(#f4dSk)" fill="none" stroke="#2A2117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M40 120 L850 120"/>
+          <rect x="22" y="60" width="96" height="20" rx="10" fill="#7D5F33"/>
+          <rect x="170" y="60" width="96" height="20" rx="10" fill="#1C6A86" stroke="#124A5E"/>
+          <rect x="318" y="60" width="96" height="20" rx="10" fill="#7D5F33"/>
+          <rect x="466" y="60" width="96" height="20" rx="10" fill="#7D5F33"/>
+          <rect x="614" y="60" width="96" height="20" rx="10" fill="#7D5F33"/>
+          <rect x="762" y="60" width="96" height="20" rx="10" fill="#7D5F33"/>
+          <circle cx="70" cy="120" r="6" fill="#FFFFFF"/>
+          <circle cx="218" cy="120" r="7" fill="#1C6A86"/>
+          <circle cx="366" cy="120" r="6" fill="#FFFFFF"/>
+          <circle cx="514" cy="120" r="6" fill="#FFFFFF"/>
+          <circle cx="662" cy="120" r="6" fill="#FFFFFF"/>
+          <circle cx="810" cy="120" r="6" fill="#FFFFFF"/>
+        </g>
+
+        <text class="f4dW" x="70" y="74" text-anchor="middle">finding</text>
+        <text class="f4dW" x="218" y="74" text-anchor="middle">journalism</text>
+        <text class="f4dW" x="366" y="74" text-anchor="middle">Google page</text>
+        <text class="f4dW" x="514" y="74" text-anchor="middle">replication</text>
+        <text class="f4dW" x="662" y="74" text-anchor="middle">reanalysis</text>
+        <text class="f4dW" x="810" y="74" text-anchor="middle">meta-analysis</text>
+        <text class="f4dD" x="70" y="104" text-anchor="middle">2010</text>
+        <text class="f4dD" x="218" y="104" text-anchor="middle">2016</text>
+        <text class="f4dD" x="366" y="104" text-anchor="middle">2016</text>
+        <text class="f4dD" x="514" y="104" text-anchor="middle">2017</text>
+        <text class="f4dD" x="662" y="104" text-anchor="middle">2017</text>
+        <text class="f4dD" x="810" y="104" text-anchor="middle">2021</text>
+        <text class="f4dL" x="70" y="150" text-anchor="middle">Woolley et al.</text>
+        <text class="f4dS" x="70" y="166" text-anchor="middle">turn-taking linked</text>
+        <text class="f4dB" x="218" y="150" text-anchor="middle">Duhigg, NYT</text>
+        <text class="f4dS" x="218" y="166" text-anchor="middle">joins it to Google</text>
+        <text class="f4dL" x="366" y="150" text-anchor="middle">Google re:Work</text>
+        <text class="f4dS" x="366" y="166" text-anchor="middle">no turn-taking</text>
+        <text class="f4dL" x="514" y="150" text-anchor="middle">Bates and Gupta</text>
+        <text class="f4dS" x="514" y="166" text-anchor="middle">did not replicate</text>
+        <text class="f4dL" x="662" y="150" text-anchor="middle">Credé, Howardson</text>
+        <text class="f4dS" x="662" y="166" text-anchor="middle">factor itself weak</text>
+        <text class="f4dL" x="810" y="150" text-anchor="middle">Riedl et al.</text>
+        <text class="f4dS" x="810" y="166" text-anchor="middle">process = strategy</text>
+
+        <text class="f4dN" x="30" y="236">All six read at source. Equal airtime as a cause of smarter groups is contested, not settled.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the teal dot is where a 2010 lab finding became "what Google learned"</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What Google's page says, and what it does not<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Google's re:Work guide on team effectiveness describes Project Aristotle: 180 teams, 115 engineering project teams and 65 sales pods, and five dynamics in order of importance: psychological safety, dependability, structure and clarity, meaning, and impact. It lists factors that did not significantly matter at Google, including consensus-driven decision making, extroversion, team size and seniority. The words "turn" and "conversation" do not appear on the page.</p>
+        <p>The turn-taking idea arrived through Charles Duhigg's 2016 New York Times Magazine article, which described Woolley and colleagues' research next to Google's psychological-safety finding. Saying "Google found that equal turn-taking makes teams effective" merges a university study, a magazine article and a company guide into one claim none of them made.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The disagreement, as it stands<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Woolley, Chabris, Pentland, Hashmi and Malone (2010, Science)</strong> studied 699 people in groups of two to five and reported a general "collective intelligence" factor that was not strongly correlated with members' average or maximum intelligence, and was correlated with members' average social sensitivity, the equality of conversational turn-taking, and the proportion of women in the group.</p>
+        <p><strong>Bates and Gupta (2017, Intelligence)</strong> ran three studies with 312 people and found individual IQ accounted for around 80 percent of group-IQ differences; the turn-taking and proportion-of-women effects were not supported. <strong>Credé and Howardson (2017, Journal of Applied Psychology)</strong> reanalysed six samples and judged the support for the collective factor generally weak.</p>
+        <p><strong>Riedl, Kim, Gupta, Malone and Woolley (2021, PNAS)</strong>, a meta-analysis of 22 studies with 5,279 people in 1,356 groups, found a robust collective factor and that group process predicted it better than individual skill. But "process" there meant skill congruence, strategy and effort on an online task platform, not equal airtime.</p>
+        <p>None of this is resolved, and this page does not resolve it. What a facilitator can take from it is narrower and safer: equal airtime is not proven to make a group smarter. The reason to balance airtime does not depend on that proof. A decision only one voice shaped contains only that voice's information, and the people who were not heard did not take part in it, which is Kaner's case for full participation and shared responsibility.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>The sentence to use with a sceptical sponsor.</strong> "I am not promising a smarter group. I am making sure the four people who know different things all get it into the room before we decide, and that the decision belongs to all of them."</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 5</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Read a meeting you ran.</strong> From memory or a recording, estimate each person's share of airtime. Who was top, and did their role ask them to be?</li>
+      <li><strong>Find the most balanced meeting on the bench</strong> and the least balanced. What kind of meeting was each, kick-off or later? Write one sentence on why.</li>
+      <li><strong>Try the cap on IS1001a.</strong> Note the Gini at 40 percent and at 30 percent, and say in one line why a round in a kick-off might be the wrong move.</li>
+      <li><strong>Practise the sponsor sentence</strong> from Part 4 out loud until it sounds like yours, without the word "Google".</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 4 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · The project manager spoke most in 30 of the 40 meetings, and in all 10 kick-offs. What is the best reading?</p>
+      <button class="qopt" type="button">A · The people chosen as project managers were the most talkative</button>
+      <button class="qopt" type="button">B · It is an artifact of how AMI cut the segments</button>
+      <button class="qopt" type="button">C · The role that runs the meeting tends to hold the floor, partly because the scenario asks it to; a facilitator who holds the agenda and the clock starts with the same pull</button>
+      <button class="qopt" type="button">D · The meetings were badly run</button>
+      <p class="qwhy">The break button rules out B: with random labels the PM is top in 9 of 40, about chance. A would need the people to have been chosen for talkativeness; AMI assigned roles by scenario. The pattern is strongest in the kick-off, where the PM is briefing, which points at the role.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Handing the closing 10 percent of each meeting to its top speaker raises the mean Gini from 0.198 to 0.236. What is the honest way to state this?</p>
+      <button class="qopt" type="button">A · On a stated model of the closing minutes, letting the loudest summarise raised inequality in all 40 meetings; the airtime cost is modest, and the larger cost, whose voice becomes the record, is not counted by the bench</button>
+      <button class="qopt" type="button">B · Letting the loudest summarise causes worse decisions</button>
+      <button class="qopt" type="button">C · The measured Gini of real summaries is 0.236</button>
+      <button class="qopt" type="button">D · It makes no difference, because 0.038 is small</button>
+      <p class="qwhy">The baseline is measured; the anti-lever is modelled, and only its direction and rough size are claimed. B claims an outcome no one measured, C mislabels a model as a measurement, and D ignores the cost the number cannot show.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · A colleague says "Google proved equal turn-taking makes teams effective". What is accurate?</p>
+      <button class="qopt" type="button">A · True: it is one of Project Aristotle's five dynamics</button>
+      <button class="qopt" type="button">B · True, and a 2017 replication confirmed it</button>
+      <button class="qopt" type="button">C · False: no study has ever linked turn-taking to group performance</button>
+      <button class="qopt" type="button">D · Google's guide lists five dynamics and none is turn-taking; the link comes from Woolley and colleagues (2010), a 2017 replication did not find it, and the question is still contested</button>
+      <p class="qwhy">The finding is real but it is Woolley's, brought into Google's story by a 2016 magazine article. Bates and Gupta did not replicate the turn-taking effect, and Riedl and colleagues' later "process" was strategy and skill matching, not airtime. C overcorrects: there is a published link, and the disagreement is about whether it holds.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Every baseline number on the bench</span><span class="note">Computed in the browser from segment timings of 40 AMI scenario meetings (AMI Meeting Corpus, CC BY 4.0; Carletta et al. 2006, MLMI 2005, Springer); derived and modified to timings only; verified against an independent Python run, 579 values identical</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The AMI scenario and roles</span><span class="note">Read on the corpus's own overview and scenario pages: four roles, four meetings in a day, PM runs the meetings</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Google re:Work, Duhigg 2016, Woolley et al. 2010, Bates and Gupta 2017, Credé and Howardson 2017, Riedl et al. 2021</span><span class="note">Each read at source (abstract, page or archived article); no effect size from Woolley 2010 is quoted because the article body was not read</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">The round robin cap and "let the loudest summarise"</span><span class="note">Simulated and modelled by rules printed on the widget; only their direction and rough size are claimed</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Three readings</b><span>Share per person, Gini of the shares (0 to 0.75 for four), top speaker's share.</span></div>
+      <div class="cheat-item"><b>The process role holds the floor</b><span>PM 37.6% on average, top in 30 of 40, all 10 kick-offs.</span></div>
+      <div class="cheat-item"><b>Turns are not airtime</b><span>PM took 29.7% of turns but 37.6% of the time: fewer, longer.</span></div>
+      <div class="cheat-item"><b>A cap moves the number</b><span>Simulated: mean Gini 0.198 to 0.095 at a 30% cap.</span></div>
+      <div class="cheat-item"><b>Do not let the loudest summarise</b><span>Modelled: Gini up in 40 of 40, and the record is in one voice.</span></div>
+      <div class="cheat-item"><b>Equal airtime is contested</b><span>Woolley 2010 found it; Bates and Gupta 2017 did not; Google never said it.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>The bench shows the floor tilting without anyone misbehaving. Session 5 is for the times someone is: the person who will not stop, the room that will not start, the fight across the table and the conversation in the corner. The rule throughout is the one the bench suggests: change the structure before you address the person.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 4 of 6 · learn-facilitation-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="03-diverge-converge-decide.html">← Prev: Diverge, converge, decide</a> &nbsp;·&nbsp; <a href="05-when-the-room-goes-wrong.html">Next: When the room goes wrong →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/ami-sample.js?v=1"></script>
+<script src="../assets/airtime-live.js?v=6"></script>
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Six sessions on running a meeting where the group does the deciding: owning the process and not the answer, agendas written as outcomes, Kaner's Diamond and decision rules, an airtime bench built on 40 real meetings from the AMI corpus, the room going wrong, and closing with owners and a record. Free, by Phoebe Fu.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Learn Facilitation with Phoebe">
+<meta property="og:description" content="Own the process, not the answer. Six sessions, one constructed cross-team workshop, and 40 real meetings measured in your browser: who held the floor, and what a facilitation move would change.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-facilitation-with-phoebe/">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-facilitation-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn Facilitation with Phoebe">
+<meta name="twitter:description" content="Who held the floor? 40 real meetings, airtime and turn-taking measured in your browser.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-facilitation-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Learn Facilitation with Phoebe</title>
+<link rel="stylesheet" href="assets/style.css?v=3">
+<style>
+
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: 1; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(var(--shadow-rgb),.16); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--muted); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff,var(--indigo-50)); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
+  .not-this { border: 1px solid var(--hairline); border-left: 4px solid var(--clay); border-radius: var(--radius); background: #fff; padding: 1.1rem 1.3rem; margin-top: 1.2rem; }
+  .not-this h3 { font-size: .95rem; font-weight: 800; margin-bottom: .5rem; }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn with Phoebe · Communication</div>
+    <h1>Learn <span class="accent">Facilitation</span> with Phoebe</h1>
+    <p class="sub">A facilitator owns how a group decides and gives up any claim on what it decides. Six sessions on doing that well: holding the process while staying out of the content, writing an agenda as a list of outcomes, walking a group through divergence, the groan zone and convergence to a decision rule named in advance, steadying a room that goes wrong, and closing with owners and a record. One constructed running case, two teams agreeing one roadmap, and one bench: 40 real meetings from the AMI Meeting Corpus, with every speaker's airtime measured in your browser.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="6">6</b><span>sessions</span></div>
+      <div class="stat"><b data-count="40">40</b><span>real meetings on the bench</span></div>
+      <div class="stat"><b data-count="21166">21,166</b><span>speaker segments timed</span></div>
+      <div class="stat"><b data-count="30">30</b><span>of 40 where the PM spoke most</span></div>
+      <div class="stat"><b data-count="45">45</b><span>min per session</span></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>The six sessions 🧭 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· from the first conversation with the sponsor to the record</span></h2>
+      <p class="plede">The running case is <strong>Larkfield, a constructed software company</strong>. Two teams, Platform and Growth, must agree one shared roadmap for next quarter: eight candidate items, room for about four. Two ordinary meetings have ended with the two leads debating while nine people watched. Jo, from a third team with no stake in the roadmap, is asked to facilitate a 90-minute workshop. Larkfield and everyone in it are invented for teaching, and every page says so.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/01-own-the-process.html" style="--diff:#34D399">
+        <span class="cicon">🧭</span>
+        <span class="cnum">Session 1 · foundations</span>
+        <h3>Own the process, not the answer</h3>
+        <p>What a facilitator is for, the four participatory values and the four jobs they turn into, the three hats nobody can wear at once, and the contracting conversation before the room.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span></span>
+      </a>
+      <a class="course-card" href="courses/02-agendas-as-outcomes.html" style="--diff:#FBBF24">
+        <span class="cicon">🗒️</span>
+        <span class="cnum">Session 2 · core</span>
+        <h3>Agendas as outcomes</h3>
+        <p>Every item gets a purpose, an outcome you could hold up at the end, and a process with a clock time. Topic agendas against outcome agendas, on Larkfield's 90 minutes.</p>
+        <span class="meta"><span class="pill">purpose, outcome, process</span></span>
+      </a>
+      <a class="course-card" href="courses/03-diverge-converge-decide.html" style="--diff:#FBBF24">
+        <span class="cicon">💠</span>
+        <span class="cnum">Session 3 · core</span>
+        <h3>Diverge, converge, decide</h3>
+        <p>Kaner's Diamond read at source, why the groan zone is normal, a tool for each zone, and the decision rules: unanimity, consent, majority, the person in charge. Named before the talking starts.</p>
+        <span class="meta"><span class="pill">the Diamond</span></span>
+      </a>
+      <a class="course-card" href="courses/04-the-airtime-bench.html" style="--diff:#F87171">
+        <span class="cicon">⏱️</span>
+        <span class="cnum">Session 4 · bench night</span>
+        <h3>The airtime bench</h3>
+        <p>Forty real meetings, every speaker's airtime and turns measured in your browser. Who held the floor, what a round robin with a cap would change, what "let the loudest summarise" costs, and the break button.</p>
+        <span class="meta"><span class="pill amber">★ the bench</span></span>
+      </a>
+      <a class="course-card" href="courses/05-when-the-room-goes-wrong.html" style="--diff:#FB923C">
+        <span class="cicon">🌩️</span>
+        <span class="cnum">Session 5 · deeper</span>
+        <h3>When the room goes wrong</h3>
+        <p>The dominator, the silent room, the fight and the side conversation. Change the structure before you address a person, and why silence is not agreement.</p>
+        <span class="meta"><span class="pill">structure first</span></span>
+      </a>
+      <a class="course-card" href="courses/06-decisions-owners-record.html" style="--diff:#FB923C">
+        <span class="cicon">📌</span>
+        <span class="cnum">Session 6 · deeper</span>
+        <h3>Close with decisions, owners and a record</h3>
+        <p>Restate the decision and the rule that made it, give every action one owner and a date, and write the record before anyone leaves. Larkfield's workshop closes.</p>
+        <span class="meta"><span class="pill amber">🔒 the close</span></span>
+      </a>
+    </div>
+    <div class="diff-legend">
+      <span><i style="background:#34D399"></i>foundations</span>
+      <span><i style="background:#FBBF24"></i>core</span>
+      <span><i style="background:#FB923C"></i>deeper</span>
+      <span><i style="background:#F87171"></i>bench night</span>
+    </div>
+  </section>
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Your passport 🎫</h2>
+      <p class="plede">Clear all three quiz questions in a session and it gets stamped. Six stamps means you can contract with a sponsor, write an outcome agenda, walk a group through the Diamond to a named decision rule, read airtime in a real meeting, steady a room that goes wrong, and close with owners and a record. Stamps live in this browser only.</p>
+    </div>
+    <div class="pp-strip"></div>
+  </section>
+  <section class="section">
+    <div class="not-this">
+      <h3>What this is not, so you land in the right place 🧭</h3>
+      <table class="clean">
+        <tr><th>If your question is</th><th>Go here instead</th></tr>
+        <tr><td>How do I run a training session or a class, with a run of show and difficult learners?</td><td><a href="https://phoebefu6.github.io/learn-course-design-with-phoebe/courses/b3-running-the-room.html">Course Design, Running the room ↗</a></td></tr>
+        <tr><td>How do I turn a programme's meetings into tracked actions and status?</td><td><a href="https://phoebefu6.github.io/learn-ai-project-management-with-phoebe/courses/b7-meetings-to-actions.html">AI Project Management, Meetings to actions ↗</a></td></tr>
+        <tr><td>How does a group make a better-calibrated forecast or decision?</td><td><a href="https://phoebefu6.github.io/learn-decision-intelligence-with-phoebe/">Decision Intelligence ↗</a></td></tr>
+        <tr><td>How do I deliver bad news or disagree with one person?</td><td><a href="https://phoebefu6.github.io/learn-communication-with-phoebe/courses/06-bad-news-and-disagreement.html">Communication ↗</a></td></tr>
+        <tr><td>How do I give a talk to a room?</td><td><a href="https://phoebefu6.github.io/learn-public-speaking-with-phoebe/">Public Speaking ↗</a></td></tr>
+        <tr><td><strong>I have to run a meeting where the group, not me, has to reach a decision it will actually keep.</strong></td><td><strong>you are in the right place</strong></td></tr>
+      </table>
+      <p style="margin-top:.7rem;font-size:.86rem;color:var(--muted)"><strong>A decision meeting, run from the process seat.</strong> Training rooms, programme tracking, forecasting, one-to-one conversations and talks are taught next door and linked from here rather than repeated.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="paths">
+      <h2>Choose your path 🗺️</h2>
+      <p class="plede">Three doors into the same conviction: the group decides, the facilitator makes that possible.</p>
+      <div class="path"><b>📅 I run a workshop next week</b>
+        <a class="pstep" href="courses/01-own-the-process.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-agendas-as-outcomes.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/06-decisions-owners-record.html">6</a>
+        <span style="font-size:.82rem;color:var(--muted)">contract, write the agenda, plan the close</span>
+      </div>
+      <div class="path"><b>🔊 One voice always wins</b>
+        <a class="pstep" href="courses/04-the-airtime-bench.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-when-the-room-goes-wrong.html">5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-diverge-converge-decide.html">3</a>
+        <span style="font-size:.82rem;color:var(--muted)">measure the floor, change the structure, name the rule</span>
+      </div>
+      <div class="path"><b>🧭 The whole craft</b>
+        <a class="pstep" href="courses/01-own-the-process.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-agendas-as-outcomes.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-diverge-converge-decide.html">3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-the-airtime-bench.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-when-the-room-goes-wrong.html">5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/06-decisions-owners-record.html">6</a>
+        <span style="font-size:.82rem;color:var(--muted)">from the sponsor's call to the record</span>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>What is honest here 🧾</h2>
+      <p class="plede">Facilitation advice travels with famous research, and some of the most quoted lines do not come from where they are said to come from. Each claim on these pages carries its status.</p>
+    </div>
+    <table class="clean">
+      <tr><th>Claim</th><th>Status</th></tr>
+      <tr><td>Every baseline bench figure: airtime shares, Gini, top share, turns, who started over whom</td><td><strong>Really computed</strong> in your browser from segment timings for 40 AMI scenario meetings (AMI Meeting Corpus, CC BY 4.0); no audio and no words are shipped</td></tr>
+      <tr><td>What a round robin with a cap, or "let the loudest summarise", would do</td><td><strong>Simulated or modelled</strong> by a rule printed on the widget, applied to the real baseline, and labelled on every number</td></tr>
+      <tr><td>"Google found that equal turn-taking makes teams effective"</td><td><strong>A conflation.</strong> Google's own guide lists five dynamics and never mentions turn-taking; the finding is Woolley and colleagues' 2010 study, joined to Google's story by a 2016 magazine article. Session 4 traces it</td></tr>
+      <tr><td>"Equal airtime makes groups smarter"</td><td><strong>Contested.</strong> A 2010 correlate that a 2017 direct replication did not find, and a 2021 meta-analysis whose "process" was something else. Session 4 teaches the disagreement</td></tr>
+      <tr><td>Kaner's Diamond and decision rules</td><td><strong>Read at source</strong> in the publisher's own excerpt and index of the 2014 third edition</td></tr>
+      <tr><td>Larkfield, Platform, Growth, Jo and every Larkfield number</td><td><strong>Constructed,</strong> for teaching</td></tr>
+    </table>
+  </section>
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">The whole path at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+  <footer class="pagefoot">
+    <span>learn-facilitation-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span>Neighbours on the shelf: <a href="https://phoebefu6.github.io/learn-communication-with-phoebe/">Communication ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-public-speaking-with-phoebe/">Public Speaking ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-course-design-with-phoebe/">Course Design ↗</a></span>
+  </footer>
+</main>
+<script>
+window.MINDMAP_DATA = {
+ "title": "Facili-\ntation",
+ "centerColor": "#4F3B1D",
+ "sessions": [
+  {
+   "label": "Own the process,\nnot the answer",
+   "href": "courses/01-own-the-process.html",
+   "color": "#34D399",
+   "concepts": [
+    {
+     "label": "Process owner, not judge",
+     "href": "courses/01-own-the-process.html"
+    },
+    {
+     "label": "Three hats, one at a time",
+     "href": "courses/01-own-the-process.html"
+    },
+    {
+     "label": "Contract with the sponsor",
+     "href": "courses/01-own-the-process.html"
+    }
+   ]
+  },
+  {
+   "label": "Agendas as\noutcomes",
+   "href": "courses/02-agendas-as-outcomes.html",
+   "color": "#FBBF24",
+   "concepts": [
+    {
+     "label": "Purpose, outcome, process",
+     "href": "courses/02-agendas-as-outcomes.html"
+    },
+    {
+     "label": "A noun you can hold up",
+     "href": "courses/02-agendas-as-outcomes.html"
+    },
+    {
+     "label": "Clock times, not topics",
+     "href": "courses/02-agendas-as-outcomes.html"
+    }
+   ]
+  },
+  {
+   "label": "Diverge, converge,\ndecide",
+   "href": "courses/03-diverge-converge-decide.html",
+   "color": "#FBBF24",
+   "concepts": [
+    {
+     "label": "Kaner's Diamond",
+     "href": "courses/03-diverge-converge-decide.html"
+    },
+    {
+     "label": "The Groan Zone is normal",
+     "href": "courses/03-diverge-converge-decide.html"
+    },
+    {
+     "label": "Name the decision rule",
+     "href": "courses/03-diverge-converge-decide.html"
+    }
+   ]
+  },
+  {
+   "label": "The airtime\nbench",
+   "href": "courses/04-the-airtime-bench.html",
+   "color": "#F87171",
+   "concepts": [
+    {
+     "label": "The PM holds the floor",
+     "href": "courses/04-the-airtime-bench.html"
+    },
+    {
+     "label": "Round robin, simulated",
+     "href": "courses/04-the-airtime-bench.html"
+    },
+    {
+     "label": "Loudest summarises: anti",
+     "href": "courses/04-the-airtime-bench.html"
+    }
+   ]
+  },
+  {
+   "label": "When the room\ngoes wrong",
+   "href": "courses/05-when-the-room-goes-wrong.html",
+   "color": "#FB923C",
+   "concepts": [
+    {
+     "label": "Structure before people",
+     "href": "courses/05-when-the-room-goes-wrong.html"
+    },
+    {
+     "label": "Silence is not agreement",
+     "href": "courses/05-when-the-room-goes-wrong.html"
+    },
+    {
+     "label": "Side talk is data",
+     "href": "courses/05-when-the-room-goes-wrong.html"
+    }
+   ]
+  },
+  {
+   "label": "Decisions, owners\nand a record",
+   "href": "courses/06-decisions-owners-record.html",
+   "color": "#FB923C",
+   "concepts": [
+    {
+     "label": "Restate rule and result",
+     "href": "courses/06-decisions-owners-record.html"
+    },
+    {
+     "label": "One owner, one date",
+     "href": "courses/06-decisions-owners-record.html"
+    },
+    {
+     "label": "The record, in the room",
+     "href": "courses/06-decisions-owners-record.html"
+    }
+   ]
+  }
+ ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=2"></script>
+</body>
+</html>
