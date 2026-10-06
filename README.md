@@ -1,3 +1,8 @@
+<!-- learn-with-phoebe hub banner -->
+> ### 📚 Part of [**Learn with Phoebe**](https://phoebefu6.github.io/learn-with-phoebe/)
+> The shelf of 148 free, hands-on courses on AI, data, and the craft around them. **[Browse every course ↗](https://phoebefu6.github.io/learn-with-phoebe/)**
+<!-- /learn-with-phoebe hub banner -->
+
 # Learn Facilitation with Phoebe
 
 Six 45-minute sessions on running a meeting where the group, not the facilitator, makes the
